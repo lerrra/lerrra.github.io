@@ -1,0 +1,128 @@
+.figure {
+  display: block;
+  position: relative;
+
+  padding: 1rem 0;
+}
+
+.figure--image {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  .figure--image__poster {
+    display: block;
+    position: relative;
+
+    max-width: 100%;
+    min-height: 22rem;
+
+    @media screen and (max-width: 767px) {
+      min-height: 15rem;
+    }
+
+    & > img {
+      width: 100%;
+
+      @include full-child;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .figure--image__caption {
+    display: block;
+    position: relative;
+    margin: 0.5rem 0;
+  }
+
+
+}
+
+.figure--blockquote {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.figure--quote {
+  display: flex;
+  flex-flow: row nowrap;
+
+  position: relative;
+  width: 100%;
+
+  .figure__image {
+    display: flex;
+    position: relative;
+
+    margin-right: 1rem;
+
+    & > svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+
+.figure--big-image {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  .figure--big-image__poster {
+    display: block;
+    position: relative;
+
+    max-width: 100%;
+    min-height: 40rem;
+
+    @media screen and (max-width: 767px) {
+      min-height: 15rem;
+    }
+
+    & > img {
+      width: 100%;
+
+      @include full-child;
+
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .figure--big-image__caption {
+    display: block;
+    position: relative;
+    margin: 0.5rem 0;
+  }
+}
+
+.figure--two-images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.figure--three-images {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.figure--icons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.figure--tile {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  position: relative;
+  margin: 0 auto;
+}

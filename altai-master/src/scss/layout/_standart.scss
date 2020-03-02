@@ -1,0 +1,88 @@
+.standart {
+  display: block;
+  position: relative;
+
+  width: 90%;
+  margin: 0 auto;
+
+  & > * {
+    margin-bottom: 3rem;
+  }
+}
+
+.standart__title {
+  @extend %medium-title;
+}
+
+.standart__text {
+  @extend %text;
+}
+
+.standart__caption {
+  @extend %caption;
+}
+
+.standart__quote {
+  margin-bottom: 0.5rem;
+  @extend %quote;
+}
+
+.standart__blockquote {
+  @extend %medium-title;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.standart__shortwave {
+  width: 70%;
+  height: 2rem;
+  margin: 0 auto;
+  @include short-wave();
+}
+
+.standart__ordered {
+  display: block;
+  position: relative;
+  margin-left: 1rem;
+
+  .standart__ordered-item {
+    display: flex;
+    flex-flow: row nowrap;
+
+    margin-bottom: 0.5rem;
+
+    .standart__ordered-item-number {
+      @extend %text;
+      margin-right: 0.5rem;
+    }
+    .standart__ordered-item-text {
+      @extend %text;
+    }
+  }
+}
+
+.standart__unordered {
+  display: block;
+  position: relative;
+  margin-left: 1rem;
+
+  .standart__unordered-item {
+    display: flex;
+    flex-flow: row nowrap;
+
+    margin-bottom: 0.5rem;
+
+    .standart__unordered-item-point {
+      @extend %text;
+      margin-right: 0.5rem;
+    }
+
+    .standart__unordered-item-text {
+      @extend %text;
+    }
+  }
+}
+
+.standart__lead {
+  @extend %lead;
+}

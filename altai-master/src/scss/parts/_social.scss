@@ -1,0 +1,25 @@
+.social {
+  display: flex;
+  flex-flow: row nowrap;
+
+  @media screen and (max-width: 1023px) {
+    flex-flow: row wrap;
+  }
+
+  .social__item {
+    display: flex;
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+
+
+    .social__item-icon {
+      display: flex;
+      width: 2rem;
+      transition: fill 0.375s;
+
+      &:hover {
+        fill: rgba($color-text, 0.5);
+      }
+    }
+  }
+}

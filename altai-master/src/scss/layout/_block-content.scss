@@ -1,0 +1,50 @@
+.block-content {
+  display: flex;
+  flex-flow: row nowrap;
+
+  position: relative;
+
+  width: 75rem;
+  max-width: 100%;
+
+  @media screen and (max-width: 1023px) {
+    flex-flow: column wrap;
+    width: 100%;
+  }
+}
+  .post {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-self: flex-start;
+
+    position: relative;
+
+    width: calc(100% - 24.5rem);
+    max-width: 100%;
+
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
+  }
+
+  .sidebar {
+    display: flex;
+    flex-flow: column;
+
+    width: 22.5rem;
+
+    margin-left: 2rem;
+
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+      margin-left: 0;
+
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+
+    & > * {
+      margin-bottom: 2rem;
+    }
+  }
