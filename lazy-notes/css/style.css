@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400');
+body {
+    background-color: #f8f9fa!important;
+    font-family: 'Ubuntu', sans-serif!important;
+}
+.space {
+    padding: 4rem 0;
+}
+.low-space {
+    padding-bottom: 4rem;
+}
+.mlowspace {
+    padding-bottom: 0.5rem;
+}
+.small-space {
+    padding-bottom: 1rem;
+}
+.description {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+.fa-book {
+    font-size: 4rem;
+}
+.footer-text {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+.social {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+@media screen and (max-width: 768px){
+    .space {
+        padding: 2rem 0;
+    }
+    .mcard {
+        padding-left: 0!important;
+        padding-bottom: 4rem!important;
+    }
+    .mhead {
+        padding-top: 1rem;
+        font-size: 1.5rem;
+    }
+    .low-space {
+        padding-bottom: 0;
+    }
+    .mlow-space {
+        padding-bottom: 4rem;
+    }
+    .fa-book {
+        font-size: 2rem;
+    }
+}
