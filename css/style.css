@@ -30,6 +30,7 @@ body {
         .profile__icon {
             width: 4rem;
             height: auto;
+            max-height: 6rem;
             object-fit: cover;
             object-position: center;
 
@@ -80,6 +81,8 @@ body {
                 color: #ff375f;
                 transition: all 300ms;
             }
+
+/*Main part*/
 
 .main {
     display: block;
@@ -226,4 +229,51 @@ body {
                 position: relative;
 
                 margin-bottom: 1rem;
+            }
+
+
+/* Contact information */
+
+.footer {
+    display: block;
+    position: relative;
+
+    padding: 2rem 0;
+}
+    .contacts {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        position: relative;
+
+        /*background: #F2F2F7;*/
+        border-radius: 0.5rem 0.5rem 0 0;
+
+        margin-bottom: 4rem;
+    }
+     .contacts__icon {
+         width: 2rem;
+         height: auto;
+         max-height: 2rem;
+         object-fit: cover;
+         object-position: center;
+
+         margin-bottom: 1rem;
+     }
+
+     .contacts__text {
+         font-size: 1.25rem;
+         line-height: 1.4;
+         font-weight: 400;
+     }
+        .contacts__text-link {
+            color: #000000;
+            text-decoration: none;
+            border-bottom: 0.15px solid #c7c7cc;
+        }
+            .contacts__text-link:hover {
+                color: #ff375f;
+                transition: all 300ms;
+                border-bottom: none;
             }
