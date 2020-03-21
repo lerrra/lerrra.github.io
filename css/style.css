@@ -77,12 +77,14 @@ body {
         }
             .bio__contact-link {
                 color: #000000;
+                line-height: 1.5;
+
                 text-decoration: none;
                 margin-right: 1rem;
             }
 
             .bio__contact-link:hover {
-                color: #ff375f;
+                color: #5856d6;
                 transition: all 300ms;
             }
 
@@ -116,27 +118,9 @@ body {
             color: #000000;
         }
             .project__title:hover {
-                color: #ff375f;
+                color: #5856d6;
                 border-bottom: none;
             }
-
-        /*.project__link {*/
-        /*    display: block;*/
-        /*    color: #000000;*/
-        /*    text-decoration: none;*/
-        /*}*/
-        /*    .project__link:after {*/
-        /*        content: '';*/
-        /*        display: block;*/
-        /*        z-index: 1;*/
-
-        /*        position: absolute;*/
-        /*        top: 0;*/
-        /*        left: 0;*/
-
-        /*        width: 100%;*/
-        /*        height: 100%;*/
-        /*    }*/
 
 
         .project__cover {
@@ -173,7 +157,7 @@ body {
                 line-height: 1.2;
                 color: #ffffff;
 
-                background: #c7c7cc;
+                background: #aeaeb2;
                 border-radius: 4px;
 
                 padding: 0.5rem 1.5rem;
@@ -187,7 +171,7 @@ body {
             }
                 .project__button-main:hover {
                     color: #ffffff;
-                    background: #ff375f;
+                    background: #5856d6;
                     transition: background 0.5s;
                 }
 
@@ -198,25 +182,24 @@ body {
                 font-size: 1rem;
                 font-weight: 400;
                 line-height: 1.2;
-                color: #c7c7cc;
+                color: #aeaeb2;
 
                 background: #ffffff;
-                border: 1px solid #c7c7cc;
+                border: 1px solid #aeaeb2;
                 border-radius: 4px;
 
-                padding: 0.5rem 1.5rem;
+                padding: 0.5rem 1rem;
 
                 -webkit-appearance: none;
                 cursor: pointer;
                 outline: none;
                 text-decoration: none;
 
-                margin-right: 1rem;
+                margin-right: 0.75rem;
             }
                 .project__button-secondary:hover {
-                    color: #ffffff;
-                    background: #ff375f;
-                    border: 1px solid #ff375f;
+                    color: #5856d6;
+                    border: 1px solid #5856d6;
                     transition: background 0.5s;
                 }
 
@@ -248,7 +231,7 @@ body {
                 color: #000000;
             }
                 .card__title:hover {
-                    color: #ff375f;
+                    color: #5856d6;
                     border-bottom: none;
                 }
 
@@ -312,7 +295,7 @@ body {
             border-bottom: 0.15px solid #c7c7cc;
         }
             .contacts__text-link:hover {
-                color: #ff375f;
+                color: #5856d6;
                 transition: all 300ms;
                 border-bottom: none;
             }
