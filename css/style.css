@@ -33,17 +33,11 @@ body {
         margin: 1rem 0 2rem;
     }
         .profile__icon {
-            width: 6rem;
-            height: auto;
-            max-height: 8rem;
-            object-fit: cover;
-            object-position: center;
-
-            border-bottom: 0.15px solid #e5e5ea;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            align-self: flex-start;
 
             margin-right: 1rem;
-            background-color: #e5e5ea;
         }
 
         .profile__text {
@@ -64,8 +58,11 @@ body {
         .profile {
             margin: 1rem 0;
         }
+    }
+
+    @media screen and (max-width: 220px) {
         .profile__icon {
-            width: 5rem;
+            display: none;
         }
     }
 
