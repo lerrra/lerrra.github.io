@@ -1,128 +1,274 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Валерия Мерзлякова — Редактор · Автор · Контент-специалист</title>
+  <meta name="description" content="Портфолио Валерии Мерзляковой — редактора и автора. Лонгриды для Tilda Education, уроки для МЭШ, статьи для Лайфхакера, детская книга и темы для блогов." />
+  <meta property="og:title" content="Валерия Мерзлякова — Редактор · Автор · Контент-специалист" />
+  <meta property="og:description" content="Портфолио: лонгриды для Tilda Education, уроки для МЭШ, статьи для Лайфхакера, детская книга, темы для блогов." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/avatar.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' font-weight='400' fill='%235856D6'>V</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat+Alternates:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/inter/inter.css">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="hero">
+        <div class="hero__meta">
+          <img src="images/avatar.png" alt="Валерия Мерзлякова" class="hero__avatar" />
+          <div>
+            <h1 class="hero__name">Валерия Мерзлякова</h1>
+            <p class="hero__role">Редактор · Автор · Контент-специалист</p>
+          </div>
+        </div>
+        <p class="hero__bio">
+          Привет! Я пишу, редактирую, верстаю. Люблю, когда всё на своём месте — и слова, и пиксели. Здесь я показываю свои работы.
+        </p>
+        <div class="hero__links">
+          <a href="https://t.me/lerrra" target="_blank" class="btn">Telegram ↗</a>
+          <a href="mailto:valeriyamer14@gmail.com" class="btn">Email ↗</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <main>
 
-
-        <title>Lera Merzlyakova | HTML/CSS </title>
-
-        <meta name="description" content="Lera Merzlyakova, HTML/CSS Coder"/>
-        <meta name="keywords" content="portfolio, web-designer"/>
-        <link rel="image_src" href="img/sm-cover.png"/>
-        <meta property="og:image" content="img/sm-cover.png"/>
-        <meta property="og:title" content="Lera Merzlyakova, HTML/CSS Coder"/>
-        <meta property="og:description"
-              content="Hello world! My passion is building content-based websites which are perfect for keeping things simple but aesthetic. Here I share my web projects."/>
-    </head>
-
-    <body>
-        <header class="header">
-            <div class="profile">
-                <svg viewBox='0 0 512 512' class="profile__icon">
-                    <path d='M81,274.71C90.36,363,165.26,432,256,432a174.91,174.91,0,0,0,71.49-15.19c-40.3-16.53-84.05-38.17-127.77-63.36C157,328.86,115.84,301.5,81,274.71Z'/>
-                    <path d='M492.72,339.51c-8.5-11.31-20-23.8-34-37a205.25,205.25,0,0,1-11,34c28.72,29.5,33.2,45.34,32.17,48.45-2,2.23-17.05,6.89-58.15-3.53q-8.83-2.24-19.32-5.46-6.76-2.08-13.79-4.49h0a176.76,176.76,0,0,0,19.54-27.25c.17-.29.35-.58.52-.88A175.39,175.39,0,0,0,432,256,178.87,178.87,0,0,0,431,237C421.43,148.83,346.6,80,256,80A175.37,175.37,0,0,0,149.6,115.89a177.4,177.4,0,0,0-45.83,51.84c-.16.29-.34.58-.51.87a175.48,175.48,0,0,0-13.83,30.52q-5.59-4.87-10.79-9.67c-5.39-5-10.17-9.63-14.42-14C34.65,145.19,31.13,129.84,32.06,127c2.16-2.43,18.1-6.54,58.13,3.55a209.88,209.88,0,0,1,24-26.56c-18.86-5.61-35.79-9.35-50.05-11C33.41,89.47,13.3,95.52,4.35,111,1.11,116.58-2,126.09,1.63,139.6,7,159.66,26.14,184,53.23,209.5c8.63,8.13,18.06,16.37,28.12,24.64,7.32,6,15,12.06,22.9,18.08q7.91,6,16.15,12T137.1,276c25.41,17.61,52.26,34.52,78.59,49.69q14.34,8.26,28.64,16t28.37,14.81c21.9,11,43.35,20.92,63.86,29.43q13.19,5.48,25.81,10.16c11.89,4.42,23.37,8.31,34.31,11.59l1.1.33c25.73,7.66,47.42,11.69,64.48,12H464c21.64,0,36.3-6.38,43.58-19C516.67,385.39,511.66,364.69,492.72,339.51Z'/>
-                </svg>
-                <div class="profile__text">
-                    <h1 class="profile__text-title">Lera Merzlyakova</h1>
-                    <h2 class="profile__text-subtitle">HTML/CSS Coder</h2>
-                </div>
+    <!-- SECTION: Лонгриды для Tilda Education -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro">
+          <h2 class="section__title">Лонгриды для Tilda Education</h2>
+          <p class="section__desc">Подробные статьи про веб-дизайн<br />с акцентом на практику.</p>
+        </div>
+        <div class="grid grid--4">
+          <a href="https://tilda.education/articles-text-and-images" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover1.png" alt="Текст и изображения" />
             </div>
-
-            <div class="bio">
-                <p class="bio__text">
-                    Hello world!
-                    My passion is building content-based websites which are perfect for keeping things simple but aesthetic.
-                    Here I share my web projects.
-                </p>
-
-                <div class="bio__contact">
-                    <a class="bio__contact-link" href="https://github.com/lerrra" target="_blank">GitHub ↗</a>
-                    <a class="bio__contact-link" href="https://t.me/lerrra" target="_blank">Telegram ↗</a>
-                    <a class="bio__contact-link" href="mailto:ask@lerrra.ru" target="_blank">Email ↗</a>
-                </div>
+            <p class="card__label">Текст и изображения</p>
+            <p class="card__caption">Рекомендации по оформлению сайта</p>
+          </a>
+          <a href="https://tilda.education/articles-cover-for-website" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover2.png" alt="Как сделать обложку сайта" />
             </div>
-
-        </header>
-
-        <main class="main">
-
-            <div class="project">
-                <a class="project__title" href="https://lerrra.github.io/altai/">Altai Black Blog Theme</a>
-                <a class="project__link" href="https://lerrra.github.io/altai/">
-                    <img class="project__cover" src="img/altai-cover.png" alt="screenshot"/>
-                </a>
-                <p class="project__description">
-                    Altai — is a blog and magazine content-based template with various post styles:
-                    for simple notes, for longreads with impressive full-width images and for structured cards.
-                </p>
-                <div class="project__button">
-                    <a class="project__button-main" href="https://lerrra.github.io/altai/" target="_blank">View Demo</a>
-                    <a class="project__button-secondary" href="https://github.com/lerrra/altai/" target="_blank">GitHub</a>
-                </div>
+            <p class="card__label">Как сделать обложку сайта</p>
+            <p class="card__caption">Практические советы арт-директора Никиты Обухова</p>
+          </a>
+          <a href="https://tilda.education/articles-online-marketing-courses" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover3.png" alt="Онлайн-курсы по маркетингу" />
             </div>
-
-            <div class="column">
-                <div class="card">
-                    <a class="card__title" href="https://lerrra.github.io/reykjavik/">Reykyavik</a>
-                    <a class="card__link" href="https://lerrra.github.io/reykjavik/">
-                        <img class="card__cover" src="img/reykjavik-cover.png" alt="screenshot"/>
-                    </a>
-                    <p class="card__description">
-                        My first experience in HTML/CSS. I used design from Dribbble in this project.
-                    </p>
-                    <div class="project__button">
-                        <a class="project__button-main" href="https://lerrra.github.io/reykjavik/" target="_blank">View Demo</a>
-                        <a class="project__button-secondary" href="https://github.com/lerrra/reykjavik" target="_blank">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <a class="card__title" href="https://lerrra.github.io/lazynotes/">LazyNotes</a>
-                    <a class="card__link" href="https://lerrra.github.io/lazynotes/">
-                        <img class="card__cover" src="img/lazynotes-cover.png" alt="screenshot"/>
-                    </a>
-                    <p class="card__description">
-                        Attempt of creating simple online store using Bootstrap.
-                        This is homepage with product cards, gallery and reviews.
-                    </p>
-                    <div class="project__button">
-                        <a class="project__button-main" href="https://lerrra.github.io/lazynotes/" target="_blank">View Demo</a>
-                        <a class="project__button-secondary" href="https://github.com/lerrra/lazynotes" target="_blank">GitHub</a>
-                    </div>
-                </div>
-
+            <p class="card__label">Онлайн-курсы по маркетингу</p>
+            <p class="card__caption">Учебные программы по продвижению сайтов</p>
+          </a>
+          <a href="https://tilda.education/articles-design-thinking-great-questions" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover5.png" alt="Дизайн-мышление" />
             </div>
+            <p class="card__label">Дизайн-мышление</p>
+            <p class="card__caption">Учимся формулировать и задавать вопросы</p>
+          </a>
+          <a href="https://tilda.education/articles-distant-work" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover6.png" alt="Удалённая работа" />
+            </div>
+            <p class="card__label">Удалённая работа</p>
+            <p class="card__caption">Как работать вне офиса и ничего не потерять</p>
+          </a>
+          <a href="https://tilda.education/articles-made-on-tilda-timuroki" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover7.png" alt="Тимуроки" />
+            </div>
+            <p class="card__label">Тимуроки</p>
+            <p class="card__caption">Интервью с создателями учебного курса по редактуре</p>
+          </a>
+          <a href="https://tilda.education/articles-ui-advices" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover8.png" alt="Короткие UI-советы" />
+            </div>
+            <p class="card__label">Короткие UI-советы</p>
+            <p class="card__caption">Подборки по оформлению веб-страниц</p>
+          </a>
+          <a href="https://tilda.education/courses/web-design/designsystem/" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/tilda_cover9.png" alt="Дизайн-системы" />
+            </div>
+            <p class="card__label">Дизайн-системы</p>
+            <p class="card__caption">UI-киты, которые облегчают проектирование интерфейсов</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
-            <div class="project">
-                <a class="project__title" href="https://lerrra.ru/">Editor Portfolio</a>
-                <a class="project__link" href="https://lerrra.ru/">
-                    <img class="project__cover" src="img/editor-cover.png" alt="screenshot"/>
-                </a>
-                <p class="project__description">
-                    This page contain my best articles on topics like web-design, self-education, books, popular science and mass culture.
-                </p>
-                <div class="project__button">
-                    <a class="project__button-main" href="https://lerrra.ru/" target="_blank">View Demo</a>
-                    <a class="project__button-secondary" href="https://github.com/lerrra/portfolio" target="_blank">GitHub</a>
+    <!-- SECTION: МЭШ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro">
+          <h2 class="section__title">Уроки и учебные пособия для МЭШ</h2>
+          <p class="section__desc">Вёрстка, дизайн и редактура электронных уроков по русскому языку для младшеклассников на сайте «Московской электронной школы».</p>
+          <p class="section__desc section__desc--mt">Такие электронные учебные пособия необходимы, чтобы школьники и без репетитора имели возможность освоить материал на углублённом уровне. В игровой форме, с творческими и интерактивными заданиями.</p>
+        </div>
+        <div class="grid grid--2">
+          <a href="noun/index.html" class="card card--mesh">
+            <div class="card__mesh-top">
+              <div class="card__mesh-content">
+                <div class="card__mesh-tags">
+                  <span class="tag">4 класс</span>
+                  <span class="tag">Русский язык</span>
                 </div>
+                <p class="card__mesh-eyebrow">ЭЛЕКТРОННОЕ УЧЕБНОЕ ПОСОБИЕ</p>
+                <h3 class="card__mesh-title">Имя существительное</h3>
+              </div>
+              <img src="images/mes_lesson2.png" alt="Имя существительное" class="card__mesh-illustration" />
             </div>
-        </main>
-
-        <footer>
-            <div class="contacts">
-                <p class="contacts__text">Еmail: <a class="contacts__text-link" href="mailto:ask@lerrra.ru" target="_blank">ask@lerrra.ru</a></p>
-                <p class="contacts__text">Telegram: @<a class="contacts__text-link" href="https://t.me/lerrra" target="_blank">lerrra</a></p>
+            <div class="card__mesh-bottom">
+              <p class="card__mesh-text">Существительное как часть речи: его грамматические признаки, способы определения склонения, алгоритм морфологического разбора.</p>
+              <span class="btn">Открыть учебник</span>
             </div>
+          </a>
+          <a href="verb/index.html" class="card card--mesh">
+            <div class="card__mesh-top">
+              <div class="card__mesh-content">
+                <div class="card__mesh-tags">
+                  <span class="tag">4 класс</span>
+                  <span class="tag">Русский язык</span>
+                </div>
+                <p class="card__mesh-eyebrow">ЭЛЕКТРОННОЕ УЧЕБНОЕ ПОСОБИЕ</p>
+                <h3 class="card__mesh-title">Морфология. Глагол</h3>
+              </div>
+              <img src="images/mes_lesson1.png" alt="Морфология. Глагол" class="card__mesh-illustration" />
+            </div>
+            <div class="card__mesh-bottom">
+              <p class="card__mesh-text">В этой серии уроков изучаем глаголы в целом и спряжение в частности, чтобы писать окончания без ошибок.</p>
+              <span class="btn">Открыть учебник</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        </footer>
-    </body>
+    <!-- SECTION: Детская книга -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro">
+          <h2 class="section__title">Публикация детской книги</h2>
+          <p class="section__desc">
+            Я написала текст, сделала перевод на английский, нарисовала гору иллюстраций и разобралась, как собрать из этого книгу.
+          </p>
+          <p class="section__desc section__desc--mt">
+            Форматы файлов, макеты в Canva и Figma, сборка EPUB, требования KDP к файлам для печати — всё это заняло время. Зато теперь книга существует в двух версиях — печатной и электронной — и её можно купить на Amazon.
+          </p>
+        </div>
+        <div class="book-gallery" onclick="openLightbox('images/gallery.png', 'Tiger Who Looked Like an Orange')">
+          <img src="images/gallery.png" alt="Tiger Who Looked Like an Orange" class="book-gallery__img" />
+        </div>
+        <a href="https://www.amazon.com/dp/B0GWKJ27MR" target="_blank" class="btn btn--mt">Перейти на Amazon</a>
+      </div>
+    </section>
+
+    <!-- SECTION: Altai Black -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro">
+          <h2 class="section__title">Тема для блога Altai Black</h2>
+          <p class="section__desc">
+            Шаблон для блога или онлайн-журнала с несколькими форматами постов: для обычных заметок, лонгридов с полноэкранными изображениями, последовательных карточек. Дизайн, макет в Figma и вёрстка HTML / CSS — мои.
+          </p>
+        </div>
+        <div class="altai-preview" onclick="openLightbox('images/altai-cover.png', 'Altai Black Theme')">
+          <img src="images/altai-cover.png" alt="Altai Black Theme" class="altai-preview__img" />
+        </div>
+        <a href="https://lerrra.github.io/altai/" target="_blank" class="btn btn--mt">Посмотреть демо</a>
+      </div>
+    </section>
+
+    <!-- SECTION: Лайфхакер -->
+    <section class="section">
+      <div class="container">
+        <div class="section__intro">
+          <h2 class="section__title">Статьи для Лайфхакера</h2>
+          <p class="section__desc">
+            Рубрики «Книги» и «Лонгриды», email-рассылка, сценарии для видео, статьи о самообразовании, науке и массовой культуре.
+          </p>
+          <a href="https://lifehacker.ru/profile/user/256916651/posts/" target="_blank" class="link-inline">Полный список статей ↗</a>
+        </div>
+        <div class="grid grid--4">
+          <a href="https://lifehacker.ru/special/travel-checklist/" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/lifehacker_cover1.png" alt="Чек-лист для путешественников" />
+            </div>
+            <p class="card__label">Чек-лист для путешественников</p>
+            <p class="card__caption">Простой способ взять всё необходимое в поездку</p>
+          </a>
+          <a href="https://lifehacker.ru/special/portion/" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/lifehacker_cover2.png" alt="Проблема порций" />
+            </div>
+            <p class="card__label">Проблема порций</p>
+            <p class="card__caption">Почему люди переедают и как это исправить</p>
+          </a>
+          <a href="https://lifehacker.ru/idiot-brain/" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/lifehacker_cover3.png" alt="Бесценный мозг" />
+            </div>
+            <p class="card__label">Бесценный мозг</p>
+            <p class="card__caption">Увлекательно про открытия нейронауки</p>
+          </a>
+          <a href="https://lifehacker.ru/10-skazok-dlya-vzroslyx/" target="_blank" class="card card--img">
+            <div class="card__thumb">
+              <img src="images/lifehacker_cover4.png" alt="Сказки для взрослых" />
+            </div>
+            <p class="card__label">Сказки для взрослых</p>
+            <p class="card__caption">Не по-детски глубокие волшебные истории</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shared lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения" onclick="closeLightbox()">
+      <button class="lightbox__close" aria-label="Закрыть" onclick="closeLightbox()">✕</button>
+      <img src="" alt="" class="lightbox__img" id="lightbox-img" onclick="closeLightbox()" />
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Email: <a href="mailto:valeriyamer14@gmail.com">valeriyamer14@gmail.com</a></p>
+      <p>Telegram: <a href="https://t.me/lerrra" target="_blank">@lerrra</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function openLightbox(src, alt) {
+      // На узких экранах лайтбокс не нужен — картинка и так на всю ширину
+      if (window.matchMedia('(max-width: 600px)').matches) return;
+      var lightbox = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      if (src) img.src = src;
+      img.alt = alt || '';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
 </html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Морфология. Глагол — ЭУП для МЭШ</title>
+  <meta name="description" content="Примеры вёрстки электронного учебного пособия «Морфология. Глагол» для Московской электронной школы." />
+  <meta property="og:title" content="Морфология. Глагол — ЭУП для МЭШ" />
+  <meta property="og:description" content="Примеры вёрстки электронного учебного пособия по русскому языку для 4 класса." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/1-main.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' font-weight='400' fill='%235856D6'>V</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat+Alternates:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #5856D6;
+      --accent-light: #eeeeff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 44px 0 36px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--accent); }
+
+    .header__body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .header__desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 11px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 100px;
+    }
+
+    /* GALLERY LAYOUT */
+    main { padding: 22px 0 40px; }
+
+    .chapter {
+      padding-top: 44px;
+      border-top: 1px solid var(--border);
+    }
+    .chapter + .chapter {
+      margin-top: 56px;
+    }
+
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* LEFT — main image */
+    .main-image {
+      position: sticky;
+      top: 28px;
+    }
+
+    .main-image__frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(88,86,214,.12);
+      cursor: zoom-in;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    @media (hover: hover) {
+      .main-image__frame:hover {
+        box-shadow: 0 12px 56px rgba(88,86,214,.18);
+        transform: translateY(-2px);
+      }
+    }
+    .main-image__frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .main-image__label {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .main-image__sub {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      overflow-y: auto;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: block; }
+
+    .lightbox__content {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+
+    .lightbox__img {
+      max-width: min(90vw, 860px);
+      height: auto;
+      border-radius: 8px;
+      cursor: default;
+      display: block;
+    }
+    .lightbox__img--fit {
+      max-height: 85vh;
+      max-width: 92vw;
+      width: auto;
+    }
+
+    .lightbox__close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.6;
+      transition: opacity 0.15s;
+    }
+    .lightbox__close:hover { opacity: 1; }
+
+    /* EXAMPLES GRID (right column) */
+    .examples-col__title { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 16px; }
+    .ex-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .ex-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #f9f9fb;
+      cursor: zoom-in;
+      transition: box-shadow .2s, transform .2s;
+    }
+    @media (hover: hover) and (min-width: 768px) {
+      .ex-item:hover { box-shadow: 0 6px 28px rgba(88,86,214,.13); transform: translateY(-2px); }
+    }
+    .ex-item:focus-visible,
+    .main-image__frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .ex-item img { display: block; width: 100%; height: auto; }
+    @media (min-width: 768px) {
+      .ex-item img { height: 170px; object-fit: cover; object-position: top; }
+    }
+    .ex-item__caption { padding: 8px 12px 10px; font-size: 12px; color: var(--muted); line-height: 1.4; border-top: 1px solid var(--border); }
+
+    .lightbox__nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      line-height: 1;
+    }
+    .lightbox__nav:hover { background: rgba(255,255,255,0.28); }
+    .lightbox__prev { left: 20px; }
+    .lightbox__next { right: 20px; }
+
+    /* FOOTER */
+    .footer {
+      padding: 64px 0 96px;
+      text-align: center;
+    }
+    .footer p { font-size: 16px; color: #888; line-height: 1.7; }
+    .footer a { color: #555; text-decoration: none; border-bottom: 1px solid #e5e5e5; transition: color 0.2s, border-color 0.2s; }
+    @media (hover: hover) { .footer a:hover { color: #111; border-color: #5856D6; } }
+
+    .mobile-caption { display: none; }
+
+    @media (max-width: 767px) {
+      .footer { padding: 32px 0 64px; }
+      .header__body { flex-direction: column; }
+      .gallery-layout { grid-template-columns: 1fr; }
+      .main-image { position: static; }
+      .main-image__frame { cursor: default; }
+
+      .main-image__frame { aspect-ratio: 2201 / 2114; }
+      .main-image__frame img { width: 100%; height: auto; }
+
+      .examples-col__title { display: none; }
+      .ex-grid { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 4px; scrollbar-width: none; }
+      .ex-grid::-webkit-scrollbar { display: none; }
+      .ex-item { flex: 0 0 80px; cursor: pointer; }
+      .ex-item img { width: 80px; height: 80px; object-fit: cover; object-position: top; }
+      .ex-item__caption { display: none; }
+      .ex-item.is-selected { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(88,86,214,.15); }
+
+      .mobile-caption { display: block; font-size: 13px; color: var(--muted); line-height: 1.5; margin-top: 10px; min-height: 1.4em; }
+    }
+
+    @media (max-width: 480px) {
+      .main-image__frame { box-shadow: none; aspect-ratio: auto; }
+      .examples-col__title { display: block; }
+      .ex-grid { display: grid; grid-template-columns: 1fr; gap: 14px; overflow: visible; padding-bottom: 0; }
+      .ex-item { flex: initial; cursor: default; }
+      .ex-item img { width: 100%; height: auto; }
+      .ex-item__caption { display: block; }
+      .ex-item.is-selected { border-color: var(--border); box-shadow: none; }
+      .ex-item--cover { display: none; }
+      .mobile-caption { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="../index.html" class="back">← Портфолио</a>
+      <div class="header__body">
+        <div>
+          <p class="eyebrow">Электронное учебное пособие · МЭШ</p>
+          <h1>Морфология. Глагол</h1>
+          <p class="header__desc">Вёрстка и дизайн учебного пособия по русскому языку. Теоретические блоки, интерактивные упражнения и задания разных типов — в игровой форме для четвероклассников.</p>
+          <div class="tags">
+            <span class="tag">Русский язык</span>
+            <span class="tag">4 класс</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- CHAPTER 1 -->
+      <div class="chapter">
+        <div class="gallery-layout">
+
+          <div class="main-image">
+            <div class="main-image__frame" role="button" tabindex="0" onclick="openLightbox(0)">
+              <img src="images/1-main.png" alt="Обложка пособия «Морфология. Глагол»" />
+            </div>
+            <p class="main-image__label">Морфология. Глагол</p>
+            <p class="main-image__sub">Главный экран знакомит с темой, перечисляет цели обучения и форматы заданий: каждый тип обозначен цветным маркером.</p>
+          </div>
+
+          <div class="examples-col">
+            <p class="examples-col__title">Примеры вёрстки</p>
+            <div class="ex-grid">
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(1)">
+                <img src="images/img-1-1.png" alt="Задание-повторение: глагол как часть речи" loading="lazy" />
+                <p class="ex-item__caption">Повторение: поля для заполнения пропусков и банк слов под рукой</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(2)">
+                <img src="images/img-1-2.png" alt="Задание-закрепление: времена глагола" loading="lazy" />
+                <p class="ex-item__caption">Закрепление: сопоставить термин и его описание</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(3)">
+                <img src="images/img-1-3.png" alt="Задание-исследование: личные местоимения" loading="lazy" />
+                <p class="ex-item__caption">Две колонки: задания слева, памятка и помощник справа</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(4)">
+                <img src="images/img-1-4.png" alt="Мой помощник: изменение глагола по лицам и числам" loading="lazy" />
+                <p class="ex-item__caption">Таблица-памятка, список вопросов и слайдер «Мой помощник»</p>
+              </div>
+            </div>
+            <p class="mobile-caption"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHAPTER 2 -->
+      <div class="chapter">
+        <div class="gallery-layout">
+
+          <div class="main-image">
+            <div class="main-image__frame" role="button" tabindex="0" onclick="openLightbox(5)">
+              <img src="images/2-main.png" alt="Глава 2 — Прошедшее время глагола" loading="lazy" />
+            </div>
+            <p class="main-image__label">Прошедшее время глагола</p>
+            <p class="main-image__sub">Употребление, изменение по числам и родам, правописание окончаний.</p>
+          </div>
+
+          <div class="examples-col">
+            <p class="examples-col__title">Примеры вёрстки</p>
+            <div class="ex-grid">
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(6)">
+                <img src="images/img-2-1.png" alt="Задание-закрепление: грамматическая форма глаголов прошедшего времени" loading="lazy" />
+                <p class="ex-item__caption">Соединить глагол в тексте с карточкой формы — стрелки как интерфейс</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(7)">
+                <img src="images/img-2-2.png" alt="Задание-история: род в языках мира" loading="lazy" />
+                <p class="ex-item__caption">Историческая справка: небольшое отступление в историю языка</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(8)">
+                <img src="images/img-2-3.png" alt="Задание-интерактив: сортировка слов по роду" loading="lazy" />
+                <p class="ex-item__caption">Три колонки — поставь слово в нужную в зависимости от его рода</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(9)">
+                <img src="images/img-2-4.png" alt="Задание-изучение: изменение по числам и родам" loading="lazy" />
+                <p class="ex-item__caption">Два блока: окончания единственного и множественного числа</p>
+              </div>
+            </div>
+            <p class="mobile-caption"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHAPTER 3 -->
+      <div class="chapter">
+        <div class="gallery-layout">
+
+          <div class="main-image">
+            <div class="main-image__frame" role="button" tabindex="0" onclick="openLightbox(10)">
+              <img src="images/3-main.png" alt="Глава 3 — Спряжение глаголов. Личные окончания глаголов I и II спряжения" loading="lazy" />
+            </div>
+            <p class="main-image__label">Личные окончания глаголов I и II спряжения</p>
+            <p class="main-image__sub">Каких типов бывает спряжение и как различать их по окончаниям.</p>
+          </div>
+
+          <div class="examples-col">
+            <p class="examples-col__title">Примеры вёрстки</p>
+            <div class="ex-grid">
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(11)">
+                <img src="images/img-3-1.png" alt="Задание-повторение: изменение глаголов по лицам и числам" loading="lazy" />
+                <p class="ex-item__caption">Текст и иллюстрация</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(12)">
+                <img src="images/img-3-2.png" alt="Задание-изучение: типы спряжения глаголов" loading="lazy" />
+                <p class="ex-item__caption">Правило крупно + таблицы окончаний</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(14)">
+                <img src="images/img-3-4.png" alt="Задание-изучение: личные окончания настоящего и будущего времени" loading="lazy" />
+                <p class="ex-item__caption">Таблица окончаний на цветных плашках</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(15)">
+                <img src="images/img-3-5.png" alt="Задание-актуализация: введение в тему спряжения" loading="lazy" />
+                <p class="ex-item__caption">Обложка параграфа с иллюстрацией и вводные вопросы</p>
+              </div>
+            </div>
+            <p class="mobile-caption"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHAPTER 4 -->
+      <div class="chapter">
+        <div class="gallery-layout">
+
+          <div class="main-image">
+            <div class="main-image__frame" role="button" tabindex="0" onclick="openLightbox(16)">
+              <img src="images/4-main.png" alt="Глава 4 — Спряжение. Алгоритм определения спряжения глаголов" loading="lazy" />
+            </div>
+            <p class="main-image__label">Спряжение глаголов</p>
+            <p class="main-image__sub">Вид глагола, суффикс перед -ть и пошаговый алгоритм определения спряжения.</p>
+          </div>
+
+          <div class="examples-col">
+            <p class="examples-col__title">Примеры вёрстки</p>
+            <div class="ex-grid">
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(17)">
+                <img src="images/img-4-1.png" alt="Задание-изучение: написание гласного перед -ТЬ" loading="lazy" />
+                <p class="ex-item__caption">Четыре правила с примерами и исключениями — всё на одном экране</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(18)">
+                <img src="images/img-4-2.png" alt="Задание-повторение: алгоритм определения спряжения" loading="lazy" />
+                <p class="ex-item__caption">Пошаговый алгоритм с пропусками — ученик воспроизводит рассуждение сам</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(13)">
+                <img src="images/img-4-3.png" alt="Задание-контроль: изменение глаголов по лицам и числам" loading="lazy" />
+                <p class="ex-item__caption">Таблица «лицо × число» — расставь формы глагола</p>
+              </div>
+            </div>
+            <p class="mobile-caption"></p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHAPTER 5 -->
+      <div class="chapter">
+        <div class="gallery-layout">
+
+          <div class="main-image">
+            <div class="main-image__frame" role="button" tabindex="0" onclick="openLightbox(19)">
+              <img src="images/5-main.png" alt="Глава 5 — Правописание безударных гласных в личных окончаниях глаголов" loading="lazy" />
+            </div>
+            <p class="main-image__label">Правописание безударных гласных в личных окончаниях глаголов</p>
+            <p class="main-image__sub">Повторение терминов, закрепление алгоритма определения спряжения, знакомство с будущим временем глаголов.</p>
+          </div>
+
+          <div class="examples-col">
+            <p class="examples-col__title">Примеры вёрстки</p>
+            <div class="ex-grid">
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(20)">
+                <img src="images/img-5-1.png" alt="Теоретический блок: написание гласного перед -ТЬ" loading="lazy" />
+                <p class="ex-item__caption">Правила в рамке + акцентный блок</p>
+              </div>
+              <div class="ex-item" role="button" tabindex="0" onclick="openLightbox(21)">
+                <img src="images/img-5-2.png" alt="Алгоритм определения спряжения в форме настоящего и будущего времени" loading="lazy" />
+                <p class="ex-item__caption">Пошаговый алгоритм, окончания подсвечены цветом</p>
+              </div>
+            </div>
+            <p class="mobile-caption"></p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" onclick="closeLightbox()">
+    <button class="lightbox__close" aria-label="Закрыть" onclick="closeLightbox()">✕</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Предыдущее" onclick="prevImage(); event.stopPropagation()">‹</button>
+    <div class="lightbox__content" onclick="closeLightbox()">
+      <img src="" alt="" class="lightbox__img" id="lightbox-img" />
+    </div>
+    <button class="lightbox__nav lightbox__next" aria-label="Следующее" onclick="nextImage(); event.stopPropagation()">›</button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Email: <a href="mailto:valeriyamer14@gmail.com">valeriyamer14@gmail.com</a></p>
+      <p>Telegram: <a href="https://t.me/lerrra" target="_blank">@lerrra</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var images = [
+      {src: 'images/1-main.png',  alt: 'Обложка пособия «Морфология. Глагол»'},
+      {src: 'images/img-1-1.png', alt: 'Задание-повторение: глагол как часть речи'},
+      {src: 'images/img-1-2.png', alt: 'Задание-закрепление: времена глагола'},
+      {src: 'images/img-1-3.png', alt: 'Задание-исследование: личные местоимения'},
+      {src: 'images/img-1-4.png', alt: 'Мой помощник: изменение глагола по лицам и числам'},
+      {src: 'images/2-main.png',  alt: 'Глава 2 — Прошедшее время глагола'},
+      {src: 'images/img-2-1.png', alt: 'Задание-закрепление: грамматическая форма глаголов прошедшего времени'},
+      {src: 'images/img-2-2.png', alt: 'Задание-история: род в языках мира'},
+      {src: 'images/img-2-3.png', alt: 'Задание-интерактив: сортировка слов по роду'},
+      {src: 'images/img-2-4.png', alt: 'Задание-изучение: изменение по числам и родам'},
+      {src: 'images/3-main.png',  alt: 'Глава 3 — Спряжение глаголов. Личные окончания глаголов I и II спряжения'},
+      {src: 'images/img-3-1.png', alt: 'Задание-повторение: изменение глаголов по лицам и числам'},
+      {src: 'images/img-3-2.png', alt: 'Задание-изучение: типы спряжения глаголов'},
+      {src: 'images/img-4-3.png', alt: 'Задание-контроль: изменение глаголов по лицам и числам'},
+      {src: 'images/img-3-4.png', alt: 'Задание-изучение: личные окончания настоящего и будущего времени'},
+      {src: 'images/img-3-5.png', alt: 'Задание-актуализация: введение в тему спряжения'},
+      {src: 'images/4-main.png',  alt: 'Глава 4 — Спряжение. Алгоритм определения спряжения глаголов'},
+      {src: 'images/img-4-1.png', alt: 'Задание-изучение: написание гласного перед -ТЬ'},
+      {src: 'images/img-4-2.png', alt: 'Задание-повторение: алгоритм определения спряжения'},
+      {src: 'images/5-main.png',  alt: 'Глава 5 — Правописание безударных гласных в личных окончаниях глаголов'},
+      {src: 'images/img-5-1.png', alt: 'Теоретический блок: написание гласного перед -ТЬ'},
+      {src: 'images/img-5-2.png', alt: 'Алгоритм определения спряжения в форме настоящего и будущего времени'},
+    ];
+    var covers = [0, 5, 10, 16, 19];
+    var groups = [
+      [0, 1, 2, 3, 4],
+      [5, 6, 7, 8, 9],
+      [10, 11, 12, 14, 15],
+      [16, 17, 18, 13],
+      [19, 20, 21],
+    ];
+    var currentGroup = [];
+    var currentPos = 0;
+    var lastFocused = null;
+
+    function showImage(index) {
+      var lbImg = document.getElementById('lightbox-img');
+      lbImg.src = images[index].src;
+      lbImg.alt = images[index].alt;
+      lbImg.classList.toggle('lightbox__img--fit', covers.indexOf(index) === -1);
+    }
+
+    function openLightbox(index) {
+      if (window.innerWidth <= 767) return;
+      lastFocused = document.activeElement;
+      for (var g = 0; g < groups.length; g++) {
+        var pos = groups[g].indexOf(index);
+        if (pos !== -1) { currentGroup = groups[g]; currentPos = pos; break; }
+      }
+      showImage(index);
+      document.getElementById('lightbox').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.lightbox__close').focus();
+    }
+
+    function prevImage() {
+      currentPos = (currentPos - 1 + currentGroup.length) % currentGroup.length;
+      showImage(currentGroup[currentPos]);
+    }
+
+    function nextImage() {
+      currentPos = (currentPos + 1) % currentGroup.length;
+      showImage(currentGroup[currentPos]);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('is-open');
+      document.body.style.overflow = '';
+      if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+    }
+
+    function initMobileGallery() {
+      if (window.innerWidth > 767 || window.innerWidth <= 480) return;
+      document.querySelectorAll('.chapter').forEach(function(chapter) {
+        if (chapter.dataset.mobileInit) return;
+        chapter.dataset.mobileInit = '1';
+        var frame      = chapter.querySelector('.main-image__frame');
+        var previewImg = frame.querySelector('img');
+        var captionEl  = chapter.querySelector('.mobile-caption');
+        var grid       = chapter.querySelector('.ex-grid');
+        var items      = chapter.querySelectorAll('.ex-item');
+        var origSrc    = previewImg.src;
+        var origAlt    = previewImg.alt;
+        previewImg.removeAttribute('width');
+        previewImg.removeAttribute('height');
+        var coverItem = document.createElement('div');
+        coverItem.className = 'ex-item ex-item--cover is-selected';
+        var coverImg = document.createElement('img');
+        coverImg.src = origSrc;
+        coverImg.alt = origAlt;
+        coverItem.appendChild(coverImg);
+        grid.insertBefore(coverItem, grid.firstChild);
+        var allItems = chapter.querySelectorAll('.ex-item');
+        function selectItem(item, src, alt, caption) {
+          previewImg.src = src;
+          previewImg.alt = alt;
+          captionEl.textContent = caption;
+          allItems.forEach(function(i) { i.classList.remove('is-selected'); });
+          item.classList.add('is-selected');
+        }
+        coverItem.addEventListener('click', function() {
+          selectItem(coverItem, origSrc, origAlt, '');
+        });
+        items.forEach(function(item) {
+          item.addEventListener('click', function() {
+            var thumbImg = item.querySelector('img');
+            var cap = item.querySelector('.ex-item__caption');
+            selectItem(item, thumbImg.src, thumbImg.alt, cap ? cap.textContent : '');
+          });
+        });
+      });
+    }
+    initMobileGallery();
+
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(initMobileGallery, 150);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      var isOpen = document.getElementById('lightbox').classList.contains('is-open');
+      if (isOpen) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'Tab') { e.preventDefault(); }
+        return;
+      }
+      var t = e.target;
+      if ((e.key === 'Enter' || e.key === ' ') && t && t.matches && t.matches('.main-image__frame, .ex-item')) {
+        e.preventDefault();
+        t.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
