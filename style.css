@@ -310,6 +310,96 @@ img {
   transition: opacity 0.2s;
 }
 
+/* ===== TOGETHER SECTION ===== */
+.together-cover {
+  margin-top: 32px;
+}
+
+.app-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #FAEFE6;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+
+.app-head__icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04),
+              0 8px 16px -8px rgba(80, 40, 20, 0.16);
+}
+
+.app-head__icon img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  display: block;
+}
+
+.app-head__meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-head__name {
+  font-family: 'Fraunces', 'Newsreader', serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: #3D2A22;
+}
+
+.app-head__brand {
+  color: #C95B43;
+}
+
+.app-head__tag {
+  font-size: 13px;
+  color: #8A7C73;
+  margin-top: 3px;
+}
+
+.app-head__links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.app-head__links .btn {
+  background: #fff;
+  border: 1px solid #E3B7A8;
+  color: #C95B43;
+  font-weight: 500;
+  padding: 8px 18px;
+}
+
+.asc-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.asc-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1290 / 2796;
+}
+
+.asc-card__inner {
+  will-change: transform;
+}
+
 /* ===== INLINE LINK ===== */
 .link-inline {
   display: inline-block;
@@ -400,6 +490,11 @@ img {
     color: #5856D6;
   }
 
+  .app-head__links .btn:hover {
+    border-color: #C95B43;
+    color: #C95B43;
+  }
+
   .book-gallery:hover .book-gallery__img,
   .altai-preview:hover .altai-preview__img {
     opacity: 0.92;
@@ -441,6 +536,67 @@ img {
 @media (max-width: 767px) {
   .grid--2 {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet + mobile: compact listing header, buttons on their own row,
+   screenshots become a small centered filmstrip (scrolls when they overflow) */
+@media (max-width: 820px) {
+  .app-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 16px;
+    row-gap: 7px;
+    padding: 20px 18px 16px;
+    border-radius: 14px;
+  }
+
+  .app-head__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+  }
+
+  .app-head__name {
+    font-size: 17px;
+  }
+
+  .app-head__tag {
+    font-size: 12px;
+  }
+
+  .app-head__links {
+    flex-basis: 100%;
+    gap: 8px;
+    margin-top: 0;
+    /* align the wrapped buttons with the text, not the icon (icon 50 + gap 16) */
+    padding-left: 66px;
+  }
+
+  .app-head__links .btn {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  .asc-row {
+    display: flex;
+    justify-content: safe center;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .asc-card {
+    flex: 0 0 168px;
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .asc-card {
+    flex-basis: 150px;
   }
 }
 
